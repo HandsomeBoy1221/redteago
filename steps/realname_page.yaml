@@ -1,0 +1,4 @@
+get_text:
+  - by: xpath
+    locator: '//*[contains(@text,"身份证正面")]'
+    action: gettext

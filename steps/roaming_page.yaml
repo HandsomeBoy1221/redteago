@@ -1,0 +1,37 @@
+exchange_one:
+  - time: 1
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.85
+    hl_percent: 0.21
+    action: press_release
+
+  - by: xpath
+    locator: '//*[@text="1天-30M"]'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnExchange'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnGift'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btn_enable'
+    action: gettext
+
+help:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/tvGuide'
+    action: click
+
+  - by: xpath
+    locator: '//*[@index="0" and @class="android.view.View"]'
+    action: gettext

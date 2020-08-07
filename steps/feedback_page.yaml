@@ -1,0 +1,28 @@
+send_question:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/edDesc'
+    action: sendkey
+    value: ${question}
+
+send_phone:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/edTelephone'
+    action: sendkey
+    value: ${phone}
+
+send_qq:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/edQQ'
+    action: sendkey
+    value: ${qq}
+
+send:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btn'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click

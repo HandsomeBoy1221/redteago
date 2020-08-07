@@ -1,0 +1,99 @@
+my_points:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/rlMyPoints'
+    action: click
+
+goto_pointsFragment:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/pointsFragment'
+    action: click
+
+my_orders:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/tvOrders'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btn_enable'
+    action: gettext
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/iv_back'
+    action: click
+
+
+
+recommend:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/tvRecommend'
+    action: click
+
+  - time: 3
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.8
+    hl_percent: 0.21
+    action: press_release
+
+  - time: 1
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.8
+    hl_percent: 0.21
+    action: press_release
+
+  - by: xpath
+    locator: '//*[contains(@text,"序号")]/..//*[@class="android.view.View" and @index="0"]'
+    action: gettext
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/iv_back'
+    action: click
+
+my_balance:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/rlMyDimonds'
+    action: click
+
+goto_realname:
+  - by: xpath
+    locator: '//*[@text="实名认证"]'
+    action: click
+
+goto_feedback:
+  - time: 1
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.6
+    hl_percent: 0.2
+    action: press_release
+
+  - by: xpath
+    locator: '//*[@text="意见反馈"]'
+    action: click
+
+goto_help:
+  - by: xpath
+    locator: '//*[@text="帮助中心"]'
+    action: click
+
+  - by: xpath
+    locator: '//*[@index="0" and @class="android.view.View"]'
+    action: gettext
+
+goto_version:
+  - time: 1
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.6
+    hl_percent: 0.2
+    action: press_release
+
+  - by: xpath
+    locator: '//*[@text="版本信息"]'
+    action: click

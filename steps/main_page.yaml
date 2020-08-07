@@ -1,0 +1,15 @@
+goto_pointsFragment:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/pointsFragment'
+    action: click
+
+goto_my:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/myFragment'
+    action: click
+
+goto_roaming:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/roamingFragment'
+    action: click

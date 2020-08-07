@@ -1,0 +1,11 @@
+send_phone:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/etEmail'
+    action: sendkey
+    value: ${phone}
+
+send_code:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnSendCode'
+    action: click

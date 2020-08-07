@@ -1,0 +1,123 @@
+registration:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnRegistration'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnRegistration'
+    action: gettext
+
+Reward1:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnReward'
+    action: click
+
+  - time: 60
+    by: id
+    locator: 'com.redteamobile.domestic.redteago:id/tt_video_ad_close_layout'
+    action: webdriver_wait
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/tt_video_ad_close_layout'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click
+
+Reward2:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnReward2'
+    action: click
+
+  - time: 60
+    action: sleep
+
+  - action: back
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click
+
+read:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnReward_reading'
+    action: click
+
+game:
+  - time: 1
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.85
+    hl_percent: 0.21
+    action: press_release
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnReward_game'
+    action: click
+
+dump:
+  - time: 1
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.85
+    hl_percent: 0.21
+    action: press_release
+
+  - by: xpath
+    locator: '//*[contains(@text,"跳转1")]/..//*[@text="领取奖励"]'
+    action: click
+
+  - time: 20
+    action: sleep
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/iv_back'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click
+
+goto_my:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/myFragment'
+    action: click
+
+recommend:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/ivHeader'
+    action: click
+
+  - time: 5
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.8
+    hl_percent: 0.21
+    action: press_release
+
+  - time: 1
+    action: sleep
+
+  - w_percent: 0.5
+    hf_percent: 0.8
+    hl_percent: 0.21
+    action: press_release
+
+  - by: xpath
+    locator: '//*[contains(@text,"序号")]/..//*[@class="android.view.View" and @index="0"]'
+    action: gettext
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/iv_back'
+    action: click

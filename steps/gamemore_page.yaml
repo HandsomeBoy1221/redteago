@@ -1,0 +1,15 @@
+game_one:
+  - by: xpath
+    locator: '//*[@text="${game_name}"]/../..//*[@text="立即开始"]'
+    action: click
+
+  - time: 10
+    action: sleep
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/rlBack'
+    action: click
+
+  - by: xpath
+    locator: '//*[@resource-id="com.redteamobile.domestic.redteago:id/llProgress"]/*[@class="android.widget.TextView" and @index="2"]'
+    action: gettext

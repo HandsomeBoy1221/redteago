@@ -1,0 +1,5 @@
+get_first_record:
+
+  - by: xpath
+    locator: '//*[@index="0" and @class="android.widget.LinearLayout"]//*[@resource-id="com.redteamobile.domestic.redteago:id/tvPoints"]'
+    action: gettext

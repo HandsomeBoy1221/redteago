@@ -1,0 +1,17 @@
+protocol:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/tvUserTerm'
+    action: click
+
+  - by: xpath
+    locator: '//*[@class="android.view.View" and @index="0"]'
+    action: gettext
+
+policy:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/tvPrivacyPolicy'
+    action: click
+
+  - by: xpath
+    locator: '//*[@class="android.view.View" and @index="0"]'
+    action: gettext
