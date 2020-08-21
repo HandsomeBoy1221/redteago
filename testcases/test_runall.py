@@ -23,7 +23,7 @@ class TestRunAll():
     def setup_class(self):
         self.app=App()
         with allure.step('登录'):
-            self.main=self.app.start().goto_login().send_phone('15019436952').send_code()
+            self.main=self.app.start().goto_login().send_phone('13524031864').send_code()
 
     #关闭APP
     @allure.story('关闭APP')
@@ -37,6 +37,7 @@ class TestRunAll():
 
     #检查操作指引文案
     @allure.story('操作指引')
+    @pytest.mark.skip
     def test_help1(self):
         with allure.step('检查操作指引文案'):
             text = self.main.goto_roaming().help()
@@ -76,9 +77,9 @@ class TestRunAll():
             open=self.main.goto_pointsFragment().Reward1()
         with allure.step('查看金币列表第一条记录'):
             first_record=open.goto_my().my_points().get_first_record()
-        with allure.step('判断金币数额是否为30'):
+        with allure.step('判断金币数额是否为70'):
             num = re.sub("\D", "", first_record)
-            assert int(num) == 30
+            assert int(num) == 70
 
     #检查创意广告2
     @allure.story('创意视频')
@@ -87,9 +88,9 @@ class TestRunAll():
             open=self.main.goto_pointsFragment().Reward2()
         with allure.step('查看金币列表第一条记录'):
             first_record = open.goto_my().my_points().get_first_record()
-        with allure.step('判断金币数额是否为30'):
+        with allure.step('判断金币数额是否为70'):
             num = re.sub("\D", "", first_record)
-            assert int(num) == 30
+            assert int(num) == 70
 
     #遍历阅读列表中的跳转，并断言金币是否增加
     @allure.story('阅读')
@@ -113,6 +114,7 @@ class TestRunAll():
 
     #检查跳转功能，并断言金币是否增加
     @allure.story('跳转')
+    @pytest.mark.skip
     def test_dump(self):
         with allure.step('点击跳转'):
             dump=self.main.goto_pointsFragment().dump()

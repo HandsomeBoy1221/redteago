@@ -3,7 +3,7 @@ game_one:
     locator: '//*[@text="${game_name}"]/../..//*[@text="立即开始"]'
     action: click
 
-  - time: 10
+  - time: 15
     action: sleep
 
   - by: id

@@ -46,12 +46,9 @@ recommend:
     action: press_release
 
   - by: xpath
-    locator: '//*[contains(@text,"序号")]/..//*[@class="android.view.View" and @index="0"]'
+    locator: '//*[contains(@text,"1212")]'
     action: gettext
 
-  - by: id
-    locator: 'com.redteamobile.domestic.redteago:id/iv_back'
-    action: click
 
 my_balance:
   - by: id

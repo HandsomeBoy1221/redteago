@@ -3,7 +3,7 @@ read_one:
     locator: '//*[@text="${read_name}"]/../..//*[@text="立即阅读"]'
     action: click
 
-  - time: 10
+  - time: 15
     action: sleep
 
   - by: id
