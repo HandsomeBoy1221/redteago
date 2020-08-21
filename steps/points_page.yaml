@@ -46,6 +46,21 @@ Reward2:
     locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
     action: click
 
+Reward3:
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnReward3'
+    action: click
+
+  - time: 60
+    action: sleep
+
+  - action: back
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click
+
 read:
   - by: id
     locator: 'com.redteamobile.domestic.redteago:id/btnReward_reading'

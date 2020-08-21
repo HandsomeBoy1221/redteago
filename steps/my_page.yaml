@@ -78,8 +78,13 @@ goto_help:
     locator: '//*[@text="帮助中心"]'
     action: click
 
+  - time: 6
+    by: xpath
+    locator: '//*[contains(@text,"兑换成功后")]'
+    action: webdriver_wait
+
   - by: xpath
-    locator: '//*[@index="0" and @class="android.view.View"]'
+    locator: '//*[contains(@text,"兑换成功后")]'
     action: gettext
 
 goto_version:
@@ -94,3 +99,17 @@ goto_version:
   - by: xpath
     locator: '//*[@text="版本信息"]'
     action: click
+
+points_tip:
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/tvPointsTip'
+    action: click
+
+  - time: 6
+    by: xpath
+    locator: '//*[contains(@text,"推荐的好友")]'
+    action: webdriver_wait
+
+  - by: xpath
+    locator: '//*[contains(@text,"推荐的好友")]'
+    action: gettext

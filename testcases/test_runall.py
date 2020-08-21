@@ -23,7 +23,8 @@ class TestRunAll():
     def setup_class(self):
         self.app=App()
         with allure.step('登录'):
-            self.main=self.app.start().goto_login().send_phone('13524031864').send_code()
+            #13524031864
+            self.main=self.app.start().goto_login().send_phone('15019436952').send_code()
 
     #关闭APP
     @allure.story('关闭APP')
@@ -46,12 +47,22 @@ class TestRunAll():
     #检测兑换功能
     @allure.story('兑换套餐')
     def test_exchange(self):
-        with allure.step('进入1天-30M套餐详情页'):
+        with allure.step('进入体验-1小时400M流量包套餐详情页'):
             more=self.main.goto_roaming()
         with allure.step('兑换套餐'):
             text=more.exchange_one()
         with allure.step('检查订单页是否有可启用套餐'):
             assert '启用' in text
+
+    #检测购买功能
+    @allure.story('购买套餐')
+    def test_buy(self):
+        with allure.step('进入联通-24小时2GB-高速流量套餐详情页'):
+            more=self.main.goto_roaming()
+        with allure.step('购买套餐'):
+            text=more.buy_one()
+        with allure.step('检查是否跳转至支付页'):
+            assert '使用支付密码登录' in text
 
     #检查好友推荐
     @allure.story('领取金币->好友推荐')
@@ -71,7 +82,7 @@ class TestRunAll():
             assert '已签到' in registration
 
     #检查创意广告1
-    @allure.story('创意视频')
+    @allure.story('创意视频I')
     def test_Reward1(self):
         with allure.step('点击观看广告'):
             open=self.main.goto_pointsFragment().Reward1()
@@ -82,7 +93,7 @@ class TestRunAll():
             assert int(num) == 70
 
     #检查创意广告2
-    @allure.story('创意视频')
+    @allure.story('创意视频II')
     def test_Reward2(self):
         with allure.step('点击观看广告'):
             open=self.main.goto_pointsFragment().Reward2()
@@ -91,6 +102,18 @@ class TestRunAll():
         with allure.step('判断金币数额是否为70'):
             num = re.sub("\D", "", first_record)
             assert int(num) == 70
+
+    #检查创意广告3
+    @allure.story('创意视频III')
+    def test_Reward3(self):
+        with allure.step('点击观看广告'):
+            open=self.main.goto_pointsFragment().Reward3()
+        with allure.step('查看金币列表第一条记录'):
+            first_record = open.goto_my().my_points().get_first_record()
+        with allure.step('判断金币数额是否为70'):
+            num = re.sub("\D", "", first_record)
+            assert int(num) == 70
+
 
     #遍历阅读列表中的跳转，并断言金币是否增加
     @allure.story('阅读')
@@ -140,6 +163,15 @@ class TestRunAll():
         with allure.step('检查推荐列表是否有推荐人'):
             assert '****' in text
 
+    # 检查金币钻石解释文案
+    @allure.story('什么是金币、钻石')
+    def test_pointstip(self):
+        with allure.step('点击进入金币钻石解释页面'):
+            text=self.main.goto_my().points_tip()
+        with allure.step('检查文案是否正确'):
+            assert '您获取的钻石在3天' in text
+
+
     #检查钻石列表是否为空
     @allure.story('我的钻石')
     def test_balance(self):
@@ -160,7 +192,7 @@ class TestRunAll():
     def test_help2(self):
         with allure.step('检查帮助中心文案'):
             text=self.main.goto_my().goto_help()
-            assert '具体' in text
+            assert '订单中看不到怎么办' in text
 
     #检查意见反馈功能是否正常
     @allure.story('意见反馈')

@@ -16,6 +16,9 @@ class MyPage(BasePage):
     def recommend(self):
         return self.step('../steps/my_page.yaml', 'recommend')
 
+    def points_tip(self):
+        return self.step('../steps/my_page.yaml', 'points_tip')
+
     def my_points(self):
         self.step('../steps/my_page.yaml', 'my_points')
         return PointsMorePage(self.driver)

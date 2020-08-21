@@ -28,6 +28,10 @@ class PointsPage(BasePage):
         self.step('../steps/points_page.yaml', 'Reward2')
         return self
 
+    def Reward3(self):
+        self.step('../steps/points_page.yaml', 'Reward3')
+        return self
+
     def read(self):
         self.step('../steps/points_page.yaml', 'read')
         return ReadMorePage(self.driver)
