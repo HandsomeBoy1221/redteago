@@ -1,0 +1,29 @@
+open_orders:
+  - by: xpath
+    locator: '//*[@resource-id="com.redteamobile.domestic.redteago:id/rvOrders"]/*[@index="0"]//*[@resource-id="com.redteamobile.domestic.redteago:id/btn_enable"]'
+    action: click
+
+  - time: 1
+    action: sleep
+
+  - time: 15
+    by: xpath
+    locator: '//*[@resource-id="com.redteamobile.domestic.redteago:id/rvOrders"]/*[@index="0"]//*[@resource-id="com.redteamobile.domestic.redteago:id/btn_enable"]'
+    action: webdriver_wait
+
+  - by: xpath
+    locator: '//*[@resource-id="com.redteamobile.domestic.redteago:id/rvOrders"]/*[@index="0"]//*[@resource-id="com.redteamobile.domestic.redteago:id/btn_enable"]'
+    action: gettext
+
+close_orders:
+  - by: xpath
+    locator: '//*[@resource-id="com.redteamobile.domestic.redteago:id/rvOrders"]/*[@index="0"]//*[@resource-id="com.redteamobile.domestic.redteago:id/btn_enable"]'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click
+
+  - by: xpath
+    locator: '//*[@resource-id="com.redteamobile.domestic.redteago:id/rvOrders"]/*[@index="0"]//*[@resource-id="com.redteamobile.domestic.redteago:id/btn_enable"]'
+    action: gettext

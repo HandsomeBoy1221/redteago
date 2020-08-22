@@ -33,7 +33,7 @@ help:
     locator: '//*[@index="0" and @class="android.view.View"]'
     action: gettext
 
-buy_one:
+buy_by_alipay:
   - by: xpath
     locator: '//*[@resource-id="com.redteamobile.domestic.redteago:id/llTextIndicatorContainer"]//*[@text="付费流量"]'
     action: click
@@ -44,6 +44,15 @@ buy_one:
 
   - by: id
     locator: 'com.redteamobile.domestic.redteago:id/btnPay'
+    action: click
+
+  - time: 2
+    by: xpath
+    locator: '//*[@text="支付宝"]'
+    action: webdriver_wait
+
+  - by: xpath
+    locator: '//*[@text="支付宝"]'
     action: click
 
   - by: id
@@ -57,4 +66,39 @@ buy_one:
 
   - by: xpath
     locator: '//*[contains(@text,"使用支付密码登录")]'
+    action: gettext
+
+buy_by_wechat:
+  - by: xpath
+    locator: '//*[@resource-id="com.redteamobile.domestic.redteago:id/llTextIndicatorContainer"]//*[@text="付费流量"]'
+    action: click
+
+  - by: xpath
+    locator: '//*[@text="联通-24小时2GB-高速流量"]'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnPay'
+    action: click
+
+  - time: 2
+    by: xpath
+    locator: '//*[@text="微信支付"]'
+    action: webdriver_wait
+
+  - by: xpath
+    locator: '//*[@text="微信支付"]'
+    action: click
+
+  - by: id
+    locator: 'com.redteamobile.domestic.redteago:id/btnConfirm'
+    action: click
+
+  - time: 10
+    by: xpath
+    locator: '//*[contains(@text,"微信号")]'
+    action: webdriver_wait
+
+  - by: xpath
+    locator: '//*[contains(@text,"微信号")]'
     action: gettext

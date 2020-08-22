@@ -5,7 +5,6 @@ import allure
 
 print(sys.path.append('..'))
 
-import time
 
 import pytest
 import yaml
@@ -24,7 +23,7 @@ class TestRunAll():
         self.app=App()
         with allure.step('登录'):
             #13524031864
-            self.main=self.app.start().goto_login().send_phone('15019436952').send_code()
+            self.main=self.app.start().goto_login().send_phone('13524031864').send_code()
 
     #关闭APP
     @allure.story('关闭APP')
@@ -54,15 +53,25 @@ class TestRunAll():
         with allure.step('检查订单页是否有可启用套餐'):
             assert '启用' in text
 
-    #检测购买功能
-    @allure.story('购买套餐')
-    def test_buy(self):
+    #检测购买功能-支付宝
+    @allure.story('购买套餐-支付宝')
+    def test_buy1(self):
         with allure.step('进入联通-24小时2GB-高速流量套餐详情页'):
             more=self.main.goto_roaming()
-        with allure.step('购买套餐'):
-            text=more.buy_one()
-        with allure.step('检查是否跳转至支付页'):
+        with allure.step('购买套餐-支付宝'):
+            text=more.buy_by_alipay()
+        with allure.step('检查是否跳转至支付宝支付页'):
             assert '使用支付密码登录' in text
+
+    #检测购买功能-微信
+    @allure.story('购买套餐-微信')
+    def test_buy2(self):
+        with allure.step('进入联通-24小时2GB-高速流量套餐详情页'):
+            more=self.main.goto_roaming()
+        with allure.step('购买套餐-微信'):
+            text=more.buy_by_wechat()
+        with allure.step('检查是否跳转至微信支付页'):
+            assert '微信号/QQ/邮箱登录' in text
 
     #检查好友推荐
     @allure.story('领取金币->好友推荐')
@@ -147,12 +156,18 @@ class TestRunAll():
             num = re.sub("\D", "", first_record)
             assert int(num) == 11
 
-    #检查全部订单页是否空白
-    @allure.story('全部订单')
+    #检查全部订单-开启/关闭套餐
+    @allure.story('全部订单-开启/关闭套餐')
     def test_orders(self):
-        with allure.step('查看全部订单'):
-            text=self.main.goto_my().my_orders()
-        with allure.step('有可用订单'):
+        with allure.step('进入全部订单页'):
+            orders=self.main.goto_my().my_orders()
+        with allure.step('开启订单'):
+            text=orders.open_orders()
+        with allure.step('检查套餐是否开启'):
+            assert '暂停' in text
+        with allure.step('关闭订单'):
+            text=orders.close_orders()
+        with allure.step('检查套餐是否关闭'):
             assert '启用' in text
 
     #检查分享好友页面跳转

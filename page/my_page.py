@@ -1,6 +1,7 @@
 from page.balancemore_page import BalanceMorePage
 from page.base_page import BasePage
 from page.feedback_page import FeedbackPage
+from page.orders_page import OrdersPage
 from page.pointsmore_page import PointsMorePage
 from page.realname_page import RealNamePage
 
@@ -11,7 +12,8 @@ from page.version_page import VersionPage
 
 class MyPage(BasePage):
     def my_orders(self):
-        return self.step('../steps/my_page.yaml', 'my_orders')
+        self.step('../steps/my_page.yaml', 'my_orders')
+        return OrdersPage(self.driver)
 
     def recommend(self):
         return self.step('../steps/my_page.yaml', 'recommend')

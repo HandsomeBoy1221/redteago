@@ -10,19 +10,10 @@ goto_pointsFragment:
     action: click
 
 my_orders:
+
   - by: id
     locator: 'com.redteamobile.domestic.redteago:id/tvOrders'
     action: click
-
-  - by: id
-    locator: 'com.redteamobile.domestic.redteago:id/btn_enable'
-    action: gettext
-
-  - by: id
-    locator: 'com.redteamobile.domestic.redteago:id/iv_back'
-    action: click
-
-
 
 recommend:
   - by: id
